@@ -21,13 +21,13 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class OperationKafkaListener {
 
-    @KafkaListener(topics = "operations", containerFactory = "kafkaListenerToString")
+    @KafkaListener(topics = "operations1", containerFactory = "kafkaListenerToString")
     public void listenerOperationToString(String message) {
-        log.info("Message from operations topics: {}", message);
+        log.info("Message from operations 2 topics: {}", message);
     }
 
-    @KafkaListener(topics = "sps", containerFactory = "kafkaListenerToByteArrays")
+    @KafkaListener(topics = "operations2", containerFactory = "kafkaListenerToByteArrays")
     public void listenerOperationToByteArrays(byte[] message) {
-        log.info("Message from operations topics: {}", new String(message));
+        log.info("Message from operations 2 topics: {}", new String(message));
     }
 }
